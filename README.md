@@ -3,7 +3,7 @@ goapng is implementation of [APNG(Animated PNG)](https://developer.mozilla.org/e
 
 - Illustrative purposes(See on Firfox or Safari)  
 
-!(animated_gopher)[_example/res/animated_gopher.png]
+![animated_gopher](_example/res/animated_gopher.png)
 
 ## Usage
 See: [example.go](_example/example.go).
