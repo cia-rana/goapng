@@ -9,7 +9,7 @@ goapng is implementation of [APNG(Animated PNG)](https://developer.mozilla.org/e
 See: [example.go](_example/example.go).
 
 ## Installation
-``$ go get bitbucket.org/cia_ana/goapng``
+``$ go get github.com/cia-rana/goapng``
 
 ## License
 MIT
