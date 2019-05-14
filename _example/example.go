@@ -1,10 +1,10 @@
 package main
 
 import (
-	"bitbucket.org/cia_rana/goapng"
+	"fmt"
+	"github.com/cia-rana/goapng"
 	"image/png"
 	"os"
-	"fmt"
 )
 
 func main() {
@@ -14,7 +14,7 @@ func main() {
 		"res/gopher03.png",
 	}
 	outPath := "res/animated_gopher.png"
-	
+
 	// Assemble output image.
 	outApng := &goapng.APNG{}
 	for _, inPath := range inPaths {
@@ -32,13 +32,13 @@ func main() {
 			return
 		}
 		f.Close()
-		
+
 		// Append a frame(type: *image.Image). First frame used as the default image.
-		outApng.Image = append(outApng.Image, &inPng)
+		outApng.Images = append(outApng.Images, inPng)
 
 		// Append a delay time(type: uint32) per frame in 10 milliseconds.
 		// If it is 0, the decoder renders the next frame as quickly as possible.
-		outApng.Delay = append(outApng.Delay, 0)
+		outApng.Delays = append(outApng.Delays, 0)
 	}
 
 	// Encode images to APNG image.
@@ -46,7 +46,7 @@ func main() {
 	if err != nil {
 		fmt.Println(err)
 		f.Close()
-		
+
 		return
 	}
 	if err = goapng.EncodeAll(f, outApng); err != nil {
